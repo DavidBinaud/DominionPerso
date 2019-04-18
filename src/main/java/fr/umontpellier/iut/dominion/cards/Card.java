@@ -38,9 +38,7 @@ public abstract class Card {
         return cost;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name;}
 
     /**
      * Renvoie une liste des types de la carte (éléments de {@code CardType})
