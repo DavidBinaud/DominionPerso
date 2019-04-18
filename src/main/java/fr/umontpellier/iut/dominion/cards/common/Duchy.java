@@ -24,4 +24,10 @@ public class Duchy extends Card {
         return 3;
     }
 
+    @Override
+    public List<CardType> getTypes() {
+        List<CardType> cardTypeList = new ArrayList<>();
+        cardTypeList.add(Victory);
+        return  cardTypeList;
+    }
 }
