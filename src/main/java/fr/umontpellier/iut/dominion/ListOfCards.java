@@ -42,7 +42,7 @@ public class ListOfCards extends ArrayList<Card> {
      * @return la carte retirée si elle a été trouvée, {@code null} sinon
      */
     public Card remove(String cardName) {
-        throw new RuntimeException("Not Implemented");
+        return super.remove(indexOf(cardName));
     }
 
     /**
@@ -53,7 +53,7 @@ public class ListOfCards extends ArrayList<Card> {
      * {@code null} sinon
      */
     public Card getCard(String cardName) {
-        throw new RuntimeException("Not Implemented");
+        return super.get(super.indexOf(cardName));
     }
 
     /**
