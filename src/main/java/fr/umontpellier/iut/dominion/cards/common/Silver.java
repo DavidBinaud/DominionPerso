@@ -25,4 +25,10 @@ public class Silver extends Card {
     }
 
 
+    @Override
+    public List<CardType> getTypes() {
+        List<CardType> cardTypeList = new ArrayList<>();
+        cardTypeList.add(Treasure);
+        return  cardTypeList;
+    }
 }
