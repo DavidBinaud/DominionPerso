@@ -27,4 +27,10 @@ public class Province extends Card {
 
 
 
+    @Override
+    public List<CardType> getTypes() {
+        List<CardType> cardTypeList = new ArrayList<>();
+        cardTypeList.add(Victory);
+        return  cardTypeList;
+    }
 }
