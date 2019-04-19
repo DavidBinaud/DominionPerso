@@ -1,5 +1,6 @@
 package fr.umontpellier.iut.dominion.cards.base;
 
+import fr.umontpellier.iut.dominion.Player;
 import fr.umontpellier.iut.dominion.cards.Card;
 
 /**
@@ -11,5 +12,10 @@ import fr.umontpellier.iut.dominion.cards.Card;
 public class Moneylender extends Card {
     public Moneylender() {
         super("Moneylender", 4);
+    }
+
+    @Override
+    public void play(Player p) {
+
     }
 }
