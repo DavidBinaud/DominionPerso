@@ -230,6 +230,7 @@ public class Player {
     public Card drawCard() {
         if(draw.isEmpty()) {
             discard.shuffle();
+            draw.addAll(discard);
         }
 
         if(draw.isEmpty()){
@@ -247,7 +248,9 @@ public class Player {
      * @return la carte piochée, {@code null} si aucune carte disponible
      */
     public Card drawToHand() {
-        throw new RuntimeException("Not Implemented");
+        Card drawed = drawCard();
+        hand.add(drawed);
+        return drawed;
     }
 
     /**
