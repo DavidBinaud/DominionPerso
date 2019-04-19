@@ -1,5 +1,6 @@
 package fr.umontpellier.iut.dominion.cards.base;
 
+import fr.umontpellier.iut.dominion.Player;
 import fr.umontpellier.iut.dominion.cards.Card;
 
 /**
@@ -14,4 +15,18 @@ public class Poacher extends Card {
     public Poacher() {
         super("Poacher", 4);
     }
+
+    /*@Override
+    public void play(Player p){
+
+        p.incrementActions(1);
+        p.drawToHand();
+        p.incrementMoney(1);
+
+        int aDefausser = 17 - p.getGame().availableSupplyCards().size();
+
+        for(int i = 0; i < aDefausser; i++){
+            p.chooseCard("Choisir carte à défausser.", p.getCardsInHand(), 0);
+        }
+    }*/
 }
