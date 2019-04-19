@@ -1,5 +1,6 @@
 package fr.umontpellier.iut.dominion.cards.base;
 
+import fr.umontpellier.iut.dominion.Player;
 import fr.umontpellier.iut.dominion.cards.Card;
 
 /**
@@ -13,5 +14,12 @@ import fr.umontpellier.iut.dominion.cards.Card;
 public class Poacher extends Card {
     public Poacher() {
         super("Poacher", 4);
+    }
+
+    @Override
+    public void play(Player p) {
+        p.incrementActions(1);
+        p.drawCard();
+        p.incrementMoney(1);
     }
 }
