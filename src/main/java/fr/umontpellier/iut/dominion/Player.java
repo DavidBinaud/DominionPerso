@@ -71,9 +71,6 @@ public class Player {
     public Player(String name, Game game) {
         this.name = name;
         this.game = game;
-        money = 0;
-        numberOfActions = 1;
-        numberOfBuys = 1;
         hand = new ListOfCards();
         discard = new ListOfCards();
         draw = new ListOfCards();
@@ -86,11 +83,7 @@ public class Player {
         for (int i = 0; i < 7; i++) {
             discard.add(0,new Copper());
         }
-        discard.shuffle();
-        for (int i = 0; i < 5; i++) {
-            drawCard();
-        }
-
+        endTurn();
     }
 
     /**
@@ -544,7 +537,16 @@ public class Player {
      * - Le joueur pioche 5 cartes en main
      */
     public void endTurn() {
-        throw new RuntimeException("Not Implemented");
+        money = 0;
+        numberOfActions = 0;
+        numberOfBuys = 0;
+        for (Card c: hand) {
+            discardCard(c);
+        }
+
+        for (int i = 0; i < 5; i++) {
+            drawCard();
+        }
     }
 
     /**
@@ -553,7 +555,9 @@ public class Player {
      * Les compteurs de nombre d'actions, de nombre d'achats et argent sont initialisés
      */
     public void startTurn() {
-        throw new RuntimeException("Not Implemented");
+        money = 0;
+        numberOfActions = 1;
+        numberOfBuys = 1;
     }
 
     /**
