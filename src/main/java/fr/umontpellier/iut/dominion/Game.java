@@ -119,7 +119,14 @@ public class Game {
      * premier).
      */
     public List<Player> otherPlayers(Player p) {
-        throw new RuntimeException("Not Implemented");
+        List<Player> other = new ArrayList<>();
+        int i = indexOfPlayer(p) >= players.size()-1 ? 0 : indexOfPlayer(p)+1;
+        while (i != indexOfPlayer(p)){
+            other.add(getPlayer(i));
+            i = i >= players.size()-1 ? 0 : i+1;
+
+        }
+        return other;
     }
 
     /**
