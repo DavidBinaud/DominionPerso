@@ -1,6 +1,8 @@
 package fr.umontpellier.iut.dominion;
 
 import fr.umontpellier.iut.dominion.cards.Card;
+import fr.umontpellier.iut.dominion.cards.common.Copper;
+import fr.umontpellier.iut.dominion.cards.common.Estate;
 
 import java.util.*;
 
@@ -67,7 +69,19 @@ public class Player {
      * préparer la main du joueur après avoir placé les cartes dans la défausse.
      */
     public Player(String name, Game game) {
-        throw new RuntimeException("Not Implemented");
+        this.game = game;
+        this.name = name;
+        hand = new ListOfCards();
+        discard = new ListOfCards();
+        draw = new ListOfCards();
+        inPlay = new ListOfCards();
+        for (int i = 0; i < 3; i++) {
+            discard.add(new Estate());
+        }
+        for (int j = 0; j < 7; j++) {
+            discard.add(new Copper());
+        }
+        endTurn();
     }
 
     /**
@@ -126,7 +140,11 @@ public class Player {
      * défausse, la pioche et en jeu)
      */
     public ListOfCards getAllCards() {
-        throw new RuntimeException("Not Implemented");
+        ListOfCards listOfCards = getCardsInHand();
+        listOfCards.addAll(draw);
+        listOfCards.addAll(discard);
+        listOfCards.addAll(inPlay);
+        return listOfCards;
     }
 
     /**
@@ -137,7 +155,11 @@ public class Player {
      * {@code getVictoryValue()}) des cartes
      */
     public int getVictoryPoints() {
-        throw new RuntimeException("Not Implemented");
+        int victoryPoint = 0;
+        for (Card card : getAllCards()) {
+            victoryPoint += card.getVictoryValue(this);
+        }
+        return victoryPoint;
     }
 
     /**
@@ -196,7 +218,17 @@ public class Player {
      * @return la carte piochée, {@code null} si aucune carte disponible
      */
     public Card drawCard() {
-        throw new RuntimeException("Not Implemented");
+        if(draw.isEmpty()) {
+            discard.shuffle();
+            draw.addAll(discard);
+            discard.clear();
+        }
+        if (draw.isEmpty()) {
+            return null;
+        }
+        else {
+            return draw.remove(0);
+        }
     }
 
     /**
@@ -208,7 +240,9 @@ public class Player {
      * @return la carte piochée, {@code null} si aucune carte disponible
      */
     public Card drawToHand() {
-        throw new RuntimeException("Not Implemented");
+        Card card = drawCard();
+        addToHand(card);
+        return card;
     }
 
     /**
@@ -284,7 +318,9 @@ public class Player {
      * {@code inPlay} et exécute la méthode {@code play(Player p)} de la carte.
      */
     private void playCard(Card c) {
-        throw new RuntimeException("Not Implemented");
+        inPlay.add(c);
+        hand.remove(c);
+        c.play(this);
     }
 
     /**
@@ -521,7 +557,16 @@ public class Player {
      * - Le joueur pioche 5 cartes en main
      */
     public void endTurn() {
-        throw new RuntimeException("Not Implemented");
+        numberOfBuys = 0;
+        numberOfActions = 0;
+        money = 0;
+        discard.addAll(hand);
+        discard.addAll(inPlay);
+        hand.clear();
+        inPlay.clear();
+        for (int i = 0; i < 5; i++) {
+            drawToHand();
+        }
     }
 
     /**
