@@ -391,7 +391,7 @@ public class Player {
      * Ajoute une carte sur le dessus de la pioche du joueur
      */
     public void addToDraw(Card c) {
-        throw new RuntimeException("Not Implemented");
+        draw.add(0,c);
     }
 
     /**
