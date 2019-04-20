@@ -57,7 +57,7 @@ class PlayerTest {
         assertEquals(1, p.getNumberOfActions());
     }
 
-    @Disabled
+
     @Test
     void testIncrementMoney() {
         p.incrementMoney(2);
