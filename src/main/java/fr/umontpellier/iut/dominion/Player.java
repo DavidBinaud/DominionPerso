@@ -334,7 +334,11 @@ public class Player {
      * fait rien.
      */
     public void playCard(String cardName) {
-        throw new RuntimeException("Not Implemented");
+        for (Card card : hand) {
+            if (card.getName().equals(cardName)) {
+                playCard(card);
+            }
+        }
     }
 
     /**
