@@ -121,7 +121,7 @@ class PlayerTest {
         assertEquals(p.getHand(), l);
     }
 
-    @Disabled
+
     @Test
     void testTotalCards() {
         assertEquals(10, p.getAllCards().size());
