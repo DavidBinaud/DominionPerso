@@ -137,7 +137,14 @@ public class Game {
      * non-vide de la réserve (cartes royaume et cartes communes)
      */
     public ListOfCards availableSupplyCards() {
-        throw new RuntimeException("Not Implemented");
+        List<Card> supply = new ArrayList<>();
+        for (ListOfCards listCard: supplyStacks) {
+            if(!listCard.isEmpty()){
+                supply.add(listCard.get(0));
+            }
+        }
+        ListOfCards available = new ListOfCards(supply);
+        return available;
     }
 
     /**
@@ -200,15 +207,20 @@ public class Game {
     }
 
 
-    /**
-     * Renvoie une carte de la réserve dont le nom est passé en argument.
-     *
-     * @param cardName nom de la carte à trouver dans la réserve
-     * @return la carte trouvée dans la réserve ou {@code null} si aucune carte
-     * ne correspond
-     */
+        /**
+         * Renvoie une carte de la réserve dont le nom est passé en argument.
+         *
+         * @param cardName nom de la carte à trouver dans la réserve
+         * @return la carte trouvée dans la réserve ou {@code null} si aucune carte
+         * ne correspond
+         */
     public Card getFromSupply(String cardName) {
-        throw new RuntimeException("Not Implemented");
+        for (ListOfCards listCard : supplyStacks){
+            if (listCard.get(0).getName().equals(cardName)){
+                return listCard.get(0);
+            }
+        }
+        return null;
     }
 
     /**

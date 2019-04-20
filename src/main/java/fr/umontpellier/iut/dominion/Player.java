@@ -334,7 +334,11 @@ public class Player {
      * fait rien.
      */
     public void playCard(String cardName) {
-        throw new RuntimeException("Not Implemented");
+        for (Card card : hand) {
+            if (card.getName().equals(cardName)) {
+                playCard(card);
+            }
+        }
     }
 
     /**
@@ -347,7 +351,9 @@ public class Player {
      * emplacement précédent au préalable.
      */
     public void gain(Card c) {
-        throw new RuntimeException("Not Implemented");
+        if (c != null) {
+            discard.add(0,c);
+        }
     }
 
     /**
@@ -385,7 +391,7 @@ public class Player {
      * Ajoute une carte sur le dessus de la pioche du joueur
      */
     public void addToDraw(Card c) {
-        throw new RuntimeException("Not Implemented");
+        draw.add(0,c);
     }
 
     /**
