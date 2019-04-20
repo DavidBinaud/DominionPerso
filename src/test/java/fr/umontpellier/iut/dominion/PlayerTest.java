@@ -75,7 +75,7 @@ class PlayerTest {
         assertEquals(1, p.getNumberOfBuys());
     }
 
-    @Disabled
+
     @Test
     void testDrawCardSimple() {
         p.addToDraw(new Copper());
