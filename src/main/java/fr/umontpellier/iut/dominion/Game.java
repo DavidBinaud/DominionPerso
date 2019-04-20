@@ -138,9 +138,9 @@ public class Game {
      */
     public ListOfCards availableSupplyCards() {
         List<Card> supply = new ArrayList<>();
-        for (ListOfCards listeCard: supplyStacks) {
-            if(!listeCard.isEmpty()){
-                supply.add(listeCard.get(0));
+        for (ListOfCards listCard: supplyStacks) {
+            if(!listCard.isEmpty()){
+                supply.add(listCard.get(0));
             }
         }
         ListOfCards available = new ListOfCards(supply);
@@ -207,17 +207,17 @@ public class Game {
     }
 
 
-    /**
-     * Renvoie une carte de la réserve dont le nom est passé en argument.
-     *
-     * @param cardName nom de la carte à trouver dans la réserve
-     * @return la carte trouvée dans la réserve ou {@code null} si aucune carte
-     * ne correspond
-     */
+        /**
+         * Renvoie une carte de la réserve dont le nom est passé en argument.
+         *
+         * @param cardName nom de la carte à trouver dans la réserve
+         * @return la carte trouvée dans la réserve ou {@code null} si aucune carte
+         * ne correspond
+         */
     public Card getFromSupply(String cardName) {
-        for (int i = 0; i < supplyStacks.size(); i++){
-            if (supplyStacks.get(i).get(0).getName().equals(cardName)){
-                return supplyStacks.get(i).getCard(cardName);
+        for (ListOfCards listCard : supplyStacks){
+            if (listCard.get(0).getName().equals(cardName)){
+                return listCard.get(0);
             }
         }
         return null;
