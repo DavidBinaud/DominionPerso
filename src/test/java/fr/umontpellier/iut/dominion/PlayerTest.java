@@ -42,7 +42,7 @@ class PlayerTest {
         assertEquals(5, p.getHand().size());
     }
 
-    @Disabled
+
     @Test
     void testPlayerConstructorDraw() {
         assertEquals(5, p.getDraw().size());
