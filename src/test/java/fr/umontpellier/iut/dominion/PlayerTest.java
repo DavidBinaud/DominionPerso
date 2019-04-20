@@ -109,7 +109,7 @@ class PlayerTest {
         assertNull(p.drawCard());
     }
 
-    @Disabled
+
     @Test
     void testCardsInHand() {
         //test que le getCardsInHand renvoie bien une liste indépendante
