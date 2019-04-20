@@ -100,7 +100,7 @@ class PlayerTest {
         assertEquals(2, p.getDraw().size());
     }
 
-    @Disabled
+
     @Test
     void testDrawCardEmptyDrawEmptyDiscard() {
         p.getDiscard().clear();
