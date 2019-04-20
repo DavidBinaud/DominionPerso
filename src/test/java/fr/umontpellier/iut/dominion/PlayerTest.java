@@ -66,7 +66,7 @@ class PlayerTest {
         assertEquals(1, p.getMoney());
     }
 
-    @Disabled
+
     @Test
     void testIncrementBuys() {
         p.incrementBuys(2);
