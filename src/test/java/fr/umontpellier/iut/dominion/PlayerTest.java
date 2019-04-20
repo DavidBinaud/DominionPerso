@@ -48,7 +48,7 @@ class PlayerTest {
         assertEquals(5, p.getDraw().size());
     }
 
-    @Disabled
+
     @Test
     void testIncrementActions() {
         p.incrementActions(2);
