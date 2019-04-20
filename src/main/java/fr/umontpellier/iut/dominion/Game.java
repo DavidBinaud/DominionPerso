@@ -137,7 +137,14 @@ public class Game {
      * non-vide de la réserve (cartes royaume et cartes communes)
      */
     public ListOfCards availableSupplyCards() {
-        throw new RuntimeException("Not Implemented");
+        List<Card> supply = new ArrayList<>();
+        for (ListOfCards listeCard: supplyStacks) {
+            if(!listeCard.isEmpty()){
+                supply.add(listeCard.get(0));
+            }
+        }
+        ListOfCards available = new ListOfCards(supply);
+        return available;
     }
 
     /**
