@@ -216,7 +216,7 @@ public class Game {
      */
     public Card getFromSupply(String cardName) {
         for (int i = 0; i < supplyStacks.size(); i++){
-            if (supplyStacks.get(i).get(0).getName() == cardName){
+            if (supplyStacks.get(i).get(0).getName().equals(cardName)){
                 return supplyStacks.get(i).getCard(cardName);
             }
         }
