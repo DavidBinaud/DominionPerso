@@ -319,7 +319,7 @@ public class Player {
      */
     private void playCard(Card c) {
         inPlay.add(c);
-        hand.remove(c);
+        ListOfCards handReturn = new ListOfCards(hand); handReturn.remove(c); hand = handReturn;
         c.play(this);
     }
 
@@ -334,10 +334,9 @@ public class Player {
      * fait rien.
      */
     public void playCard(String cardName) {
-        for (Card card : hand) {
-            if (card.getName().equals(cardName)) {
-                playCard(card);
-            }
+        Card c = hand.getCard(cardName);
+        if(c != null) {
+            playCard(c);
         }
     }
 
@@ -352,7 +351,7 @@ public class Player {
      */
     public void gain(Card c) {
         if (c != null) {
-            discard.add(0,c);
+            discardCard(c);
         }
     }
 
@@ -366,7 +365,9 @@ public class Player {
      * null} si aucune carte n'a été prise dans la réserve.
      */
     public Card gainFromSupply(String cardName) {
-        throw new RuntimeException("Not Implemented");
+        Card c = game.removeFromSupply(cardName);
+        gain(c);
+        return c;
     }
 
     /**
@@ -384,7 +385,16 @@ public class Player {
      * lieu
      */
     public Card buyCard(String cardName) {
-        throw new RuntimeException("Not Implemented");
+        Card c = game.getFromSupply(cardName);
+        if (c != null && getMoney() >= c.getCost() && numberOfBuys >= 1) {
+            money -= c.getCost();
+            numberOfBuys--;
+            gainFromSupply(cardName);
+            return c;
+        }
+        else {
+            return null;
+        }
     }
 
     /**
@@ -581,7 +591,9 @@ public class Player {
      * Les compteurs de nombre d'actions, de nombre d'achats et argent sont initialisés
      */
     public void startTurn() {
-        throw new RuntimeException("Not Implemented");
+        numberOfActions = 1;
+        numberOfBuys = 1;
+        money = 0;
     }
 
     /**

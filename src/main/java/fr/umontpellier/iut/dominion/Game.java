@@ -137,13 +137,12 @@ public class Game {
      * non-vide de la réserve (cartes royaume et cartes communes)
      */
     public ListOfCards availableSupplyCards() {
-        List<Card> supply = new ArrayList<>();
+        ListOfCards available = new ListOfCards();
         for (ListOfCards listCard: supplyStacks) {
             if(!listCard.isEmpty()){
-                supply.add(listCard.get(0));
+                available.add(listCard.get(0));
             }
         }
-        ListOfCards available = new ListOfCards(supply);
         return available;
     }
 
@@ -215,12 +214,7 @@ public class Game {
          * ne correspond
          */
     public Card getFromSupply(String cardName) {
-        for (ListOfCards listCard : supplyStacks){
-            if (listCard.get(0).getName().equals(cardName)){
-                return listCard.get(0);
-            }
-        }
-        return null;
+        return availableSupplyCards().getCard(cardName);
     }
 
     /**
@@ -231,7 +225,17 @@ public class Game {
      * ne correspond au nom passé en argument
      */
     public Card removeFromSupply(String cardName) {
-        throw new RuntimeException("Not Implemented");
+        Card c = getFromSupply(cardName);
+        if (c != null) {
+            for (ListOfCards listCards: supplyStacks) {
+                if(!listCards.isEmpty() && listCards.get(0).getName().equals(cardName)){
+                    listCards.remove(c);
+                }
+
+            }
+        }
+        supplyStacks.remove(c);
+        return c;
     }
 
     /**

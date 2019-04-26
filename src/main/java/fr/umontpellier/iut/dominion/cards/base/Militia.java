@@ -1,6 +1,5 @@
 package fr.umontpellier.iut.dominion.cards.base;
 
-import fr.umontpellier.iut.dominion.Player;
 import fr.umontpellier.iut.dominion.cards.Card;
 
 /**
@@ -12,10 +11,5 @@ import fr.umontpellier.iut.dominion.cards.Card;
 public class Militia extends Card {
     public Militia() {
         super("Militia", 4);
-    }
-
-    @Override
-    public void play(Player p) {
-        p.incrementMoney(2);
     }
 }

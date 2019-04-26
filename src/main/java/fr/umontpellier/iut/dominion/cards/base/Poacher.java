@@ -16,7 +16,7 @@ public class Poacher extends Card {
         super("Poacher", 4);
     }
 
-    /*@Override
+    @Override
     public void play(Player p){
 
         p.incrementActions(1);
@@ -26,7 +26,6 @@ public class Poacher extends Card {
         int aDefausser = 17 - p.getGame().availableSupplyCards().size();
 
         for(int i = 0; i < aDefausser; i++){
-            p.chooseCard("Choisir carte à défausser.", p.getCardsInHand(), 0);
         }
-    }*/
+    }
 }

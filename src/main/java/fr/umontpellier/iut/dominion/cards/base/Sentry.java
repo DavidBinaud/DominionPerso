@@ -1,6 +1,5 @@
 package fr.umontpellier.iut.dominion.cards.base;
 
-import fr.umontpellier.iut.dominion.Player;
 import fr.umontpellier.iut.dominion.cards.Card;
 
 /**
@@ -9,16 +8,10 @@ import fr.umontpellier.iut.dominion.cards.Card;
  * +1 Carte.
  * +1 Action.
  * Regardez les 2 premières cartes de votre deck. Écartez et/ou défaussez celles que vous voulez.
- * Replacez le sur votre deck dans l'ordre de votre choix.
+ * Replacez les autres sur votre deck dans l'ordre de votre choix.
  */
 public class Sentry extends Card {
     public Sentry() {
         super("Sentry", 5);
-    }
-
-    @Override
-    public void play(Player p) {
-        p.drawCard();
-        p.incrementActions(1);
     }
 }

@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 /**
  * Liste de cartes
  */
-public class ListOfCards extends ArrayList<Card> {
+public class    ListOfCards extends ArrayList<Card> {
 
 
     /**
@@ -42,7 +42,11 @@ public class ListOfCards extends ArrayList<Card> {
      * @return la carte retirée si elle a été trouvée, {@code null} sinon
      */
     public Card remove(String cardName) {
-        return super.remove(indexOf(cardName));
+        Card c = getCard(cardName);
+        if (c != null){
+            remove(c);
+        }
+        return c;
     }
 
     /**
@@ -53,7 +57,12 @@ public class ListOfCards extends ArrayList<Card> {
      * {@code null} sinon
      */
     public Card getCard(String cardName) {
-        return super.get(super.indexOf(cardName));
+        for (Card c: this) {
+            if (c.getName().equals(cardName)){
+                return c;
+            }
+        }
+        return null;
     }
 
     /**

@@ -1,6 +1,5 @@
 package fr.umontpellier.iut.dominion.cards.base;
 
-import fr.umontpellier.iut.dominion.Player;
 import fr.umontpellier.iut.dominion.cards.Card;
 
 /**
@@ -13,10 +12,5 @@ import fr.umontpellier.iut.dominion.cards.Card;
 public class Cellar extends Card {
     public Cellar() {
         super("Cellar", 2);
-    }
-
-    @Override
-    public void play(Player p) {
-        p.incrementActions(1);
     }
 }
