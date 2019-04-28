@@ -319,7 +319,7 @@ public class Player {
      */
     private void playCard(Card c) {
         inPlay.add(c);
-        ListOfCards handReturn = new ListOfCards(hand); handReturn.remove(c); hand = handReturn;
+       hand.remove(c);
         c.play(this);
     }
 
@@ -644,7 +644,7 @@ public class Player {
         }
 
         // 3. (Trésor)
-        for (Card c : hand){
+        for (Card c : getCardsInHand()){
             if (c.getTypes().contains(CardType.Treasure))
                 playCard(c);
         }
