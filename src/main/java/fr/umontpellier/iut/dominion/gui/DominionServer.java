@@ -47,7 +47,7 @@ public class DominionServer {
         Collections.shuffle(allKingdomCards);
 
         // Noms des joueurs
-        String[] playerNames = new String[]{"Marco", "Polo"};
+        String[] playerNames = new String[]{"Marco", "Polo","Junior"};
         // Cartes royaume à utiliser
         // Option 1. Aucune carte royaume (uniquement les cartes communes)
         //String[] kingdomCards = new String[0];

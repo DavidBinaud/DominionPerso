@@ -37,16 +37,19 @@ public class Bandit extends Attack {
 
             if(topDeckTreasure.size() > 1){
                 Card treasureCardToTrash = topDeckTreasure.getCard(otherPlayer.chooseCard("Treasure card to trash",topDeckTreasure,false));
+                System.out.println(topDeckTreasure.toJSON());
                 otherPlayer.trashCard(treasureCardToTrash);
                 topDeckTreasure.remove(treasureCardToTrash);
 
                 otherPlayer.discardCard(topDeckTreasure.get(0));
             }
             else{
-                    otherPlayer.trashCard(topDeckTreasure.get(0));
-
-                    otherPlayer.discardCard(topDeck.get(0));
-
+                for (Card c: topDeckTreasure) {
+                    otherPlayer.trashCard(c);
+                }
+                for (Card c: topDeck) {
+                    otherPlayer.discardCard(c);
+                }
             }
 
         }
