@@ -11,7 +11,7 @@ import fr.umontpellier.iut.dominion.cards.Card;
  * +1 Pièce.
  * Défaussez une carte de votre main par pile de réserve épuisée.
  */
-public class Poacher extends Card {
+public class Poacher extends Action {
     public Poacher() {
         super("Poacher", 4);
     }
@@ -23,9 +23,12 @@ public class Poacher extends Card {
         p.drawToHand();
         p.incrementMoney(1);
 
-        int aDefausser = 17 - p.getGame().availableSupplyCards().size();
+        int aDefausser = p.getGame().sizeOfSupplyStack() - p.getGame().availableSupplyCards().size();
 
         for(int i = 0; i < aDefausser; i++){
+            Card cardToDiscard = p.getCardsInHand().getCard(p.chooseCard("Card to discard",p.getCardsInHand(),false));
+            p.removeFromHand(cardToDiscard);
+            p.discardCard(cardToDiscard);
         }
     }
 }

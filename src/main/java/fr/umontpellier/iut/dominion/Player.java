@@ -134,6 +134,16 @@ public class Player {
         return new ListOfCards(hand);
     }
 
+
+    /**
+     * Renvoie une liste des cartes que le joueur a dans sa pioche.
+     * La liste renvoyée doit être une nouvelle {@code ListOfCards} dont les
+     * éléments sont les mêmes que ceux de {@code draw}.
+     */
+    public ListOfCards getCardsInDraw() {
+        return new ListOfCards(draw);
+    }
+
     /**
      * Renvoie une liste de toutes les cartes possédées par le joueur
      * (le deck complet c'est-à-dire toutes les cartes dans la main, la
@@ -252,6 +262,8 @@ public class Player {
         hand.add(c);
     }
 
+    public void removeFromHand(Card c){hand.remove(c);}
+
     /**
      * Défausse une carte.
      *
@@ -319,7 +331,7 @@ public class Player {
      */
     private void playCard(Card c) {
         inPlay.add(c);
-       hand.remove(c);
+        hand.remove(c);
         c.play(this);
     }
 

@@ -106,6 +106,8 @@ public class Game {
         return players.indexOf(p);
     }
 
+    public int sizeOfSupplyStack(){return supplyStacks.size();}
+
     /**
      * Renvoie la liste des adversaires du joueur passé en argument, dans
      * l'ordre dans lequel ils apparaissent à partir du joueur {@code p}.
@@ -225,18 +227,20 @@ public class Game {
      * ne correspond au nom passé en argument
      */
     public Card removeFromSupply(String cardName) {
-        Card c = getFromSupply(cardName);
-        if (c != null) {
             for (ListOfCards listCards: supplyStacks) {
                 if(!listCards.isEmpty() && listCards.get(0).getName().equals(cardName)){
-                    listCards.remove(c);
+                    return listCards.remove(cardName);
                 }
-
             }
+             return null;
         }
-        supplyStacks.remove(c);
-        return c;
+
+
+    public void trashCard(Card c){
+        trashedCards.add(c);
     }
+
+
 
     /**
      * Teste si la partie est terminée
