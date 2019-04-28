@@ -1,7 +1,10 @@
 package fr.umontpellier.iut.dominion.cards.common;
 
+import fr.umontpellier.iut.dominion.ListOfCards;
 import fr.umontpellier.iut.dominion.Player;
 import fr.umontpellier.iut.dominion.cards.Card;
+
+import java.util.List;
 
 /**
  * Carte Argent (Silver)
@@ -15,10 +18,13 @@ public class Silver extends Treasure {
 
     @Override
     public void play(Player p) {
+        ListOfCards inPlay = p.getCardsInPlay();
         p.incrementMoney(2);
-        if (p.getAura()){
-            p.incrementMoney(1);
-            p.setAura(false);
+
+        if(inPlay.getCard("Merchant") != null) {
+            if (inPlay.remove("Silver") != null && inPlay.getCard("Silver") == null) {
+                p.incrementMoney(1);
+            }
         }
     }
 }

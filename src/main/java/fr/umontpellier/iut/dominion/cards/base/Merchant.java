@@ -19,6 +19,5 @@ public class Merchant extends Action {
     public void play(Player p) {
         p.drawToHand();
         p.incrementActions(1);
-        p.setAura(true);
     }
 }
