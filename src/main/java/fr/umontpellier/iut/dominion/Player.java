@@ -386,15 +386,14 @@ public class Player {
      */
     public Card buyCard(String cardName) {
         Card c = game.getFromSupply(cardName);
-        if (c != null && getMoney() >= c.getCost() && numberOfBuys >= 1) {
+        if (c != null && numberOfBuys >= 1 && getMoney() >= c.getCost()) {
             money -= c.getCost();
             numberOfBuys--;
             gainFromSupply(cardName);
             return c;
         }
-        else {
-            return null;
-        }
+        return null;
+
     }
 
     /**
