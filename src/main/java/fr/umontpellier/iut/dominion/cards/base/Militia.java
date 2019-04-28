@@ -19,7 +19,7 @@ public class Militia extends Attack {
     public void play(Player p) {
         p.incrementMoney(2);
 
-        for (Player otherPlayer: p.getGame().otherPlayers(p)) {
+        for (Player otherPlayer: otherPlayersNoReact(p)) {
            while (otherPlayer.getCardsInHand().size() > 3){
                Card c = otherPlayer.getCardsInHand().getCard(otherPlayer.chooseCard("Carte à defausser",otherPlayer.getCardsInHand(),false));
                otherPlayer.removeFromHand(c);

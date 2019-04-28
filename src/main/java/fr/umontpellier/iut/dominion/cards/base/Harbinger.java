@@ -1,6 +1,7 @@
 package fr.umontpellier.iut.dominion.cards.base;
 
 import fr.umontpellier.iut.dominion.Player;
+import fr.umontpellier.iut.dominion.cards.Card;
 
 /**
  * Carte Avant-coureur (Harbinger)
@@ -18,5 +19,13 @@ public class Harbinger extends Action {
     public void play(Player p) {
         p.drawToHand();
         p.incrementActions(1);
+
+        String input = p.chooseCard("choose a card to put onto your deck",p.getCardsInDiscard(),true);
+
+        if(!input.equals("")){
+            Card cardChoosen = p.getCardsInDiscard().getCard(input);
+            p.addToDraw(cardChoosen);
+            p.removeFromDiscard(cardChoosen);
+        }
     }
 }

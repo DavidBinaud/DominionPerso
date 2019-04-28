@@ -18,7 +18,7 @@ public class Witch extends Attack {
         p.drawToHand();
         p.drawToHand();
 
-        for (Player otherPlayer: p.getOtherPlayers()) {
+        for (Player otherPlayer: otherPlayersNoReact(p)) {
             otherPlayer.gainFromSupply("Curse");
         }
     }

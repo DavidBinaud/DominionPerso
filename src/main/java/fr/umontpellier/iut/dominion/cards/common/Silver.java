@@ -16,5 +16,9 @@ public class Silver extends Treasure {
     @Override
     public void play(Player p) {
         p.incrementMoney(2);
+        if (p.getAura()){
+            p.incrementMoney(1);
+            p.setAura(false);
+        }
     }
 }

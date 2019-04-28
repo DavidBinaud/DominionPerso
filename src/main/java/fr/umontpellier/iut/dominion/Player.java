@@ -55,6 +55,8 @@ public class Player {
      */
     private ListOfCards inPlay;
 
+    private boolean Aura;
+
     /**
      * Constructeur
      *
@@ -125,6 +127,14 @@ public class Player {
         return inPlay;
     }
 
+    public boolean getAura() {
+        return Aura;
+    }
+
+    public void setAura(boolean aura) {
+        Aura = aura;
+    }
+
     /**
      * Renvoie une liste des cartes que le joueur a en main.
      * La liste renvoyée doit être une nouvelle {@code ListOfCards} dont les
@@ -132,6 +142,16 @@ public class Player {
      */
     public ListOfCards getCardsInHand() {
         return new ListOfCards(hand);
+    }
+
+
+    /**
+     * Renvoie une liste des cartes que le joueur a dans sa défausse.
+     * La liste renvoyée doit être une nouvelle {@code ListOfCards} dont les
+     * éléments sont les mêmes que ceux de {@code discard}.
+     */
+    public ListOfCards getCardsInDiscard() {
+        return new ListOfCards(discard);
     }
 
 
@@ -262,7 +282,25 @@ public class Player {
         hand.add(c);
     }
 
+    /**
+     * Retire une carte de la main du joueur.
+     */
     public void removeFromHand(Card c){hand.remove(c);}
+
+
+    /**
+     * Retire une carte de la défausse du joueur.
+     */
+    public void removeFromDiscard(Card c){discard.remove(c);}
+
+    /**
+     * Retire une carte de la main du joueur
+     * Et la place sur sa pioche.
+     */
+    public void fromHandToDraw(Card c){
+        removeFromHand(c);
+        addToDraw(c);
+    }
 
     /**
      * Défausse une carte.
@@ -408,6 +446,14 @@ public class Player {
 
     }
 
+    public void trashCard(Card c){
+        inPlay.remove(c);
+        hand.remove(c);
+        draw.remove(c);
+        discard.remove(c);
+        game.trashCard(c);
+    }
+
     /**
      * Ajoute une carte sur le dessus de la pioche du joueur
      */
@@ -533,6 +579,19 @@ public class Player {
         return choose(instruction, stringChoices, canPass, false);
     }
 
+
+
+    public boolean reactToAttack(){
+        boolean react = false;
+        if (hand.getCard("Moat") != null){
+            List<String> choices = Arrays.asList("y", "n");
+            String input = chooseOption("React with your Moat?",choices,false);
+            if (input.equals("y")){
+                react = true;
+            }
+        }
+        return react;
+    }
     /**
      * Envoie l'état de la partie pour affichage aux joueurs et à l'UI avant de faire un choix
      *
@@ -576,6 +635,7 @@ public class Player {
         game.printToUI("{" + joiner.toString() + "}\n");
     }
 
+
     /**
      * Termine le tour du joueur
      *
@@ -594,6 +654,7 @@ public class Player {
         for (int i = 0; i < 5; i++) {
             drawToHand();
         }
+        Aura = false;
     }
 
     /**
