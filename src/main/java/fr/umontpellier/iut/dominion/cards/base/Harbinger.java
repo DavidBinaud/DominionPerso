@@ -3,6 +3,9 @@ package fr.umontpellier.iut.dominion.cards.base;
 import fr.umontpellier.iut.dominion.Player;
 import fr.umontpellier.iut.dominion.cards.Card;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Carte Avant-coureur (Harbinger)
  *
@@ -20,7 +23,11 @@ public class Harbinger extends Action {
         p.drawToHand();
         p.incrementActions(1);
 
-        String input = p.chooseCard("choose a card to put onto your deck",p.getCardsInDiscard(),true);
+        List<String> choices = new ArrayList<>();
+        for (Card c:p.getCardsInDiscard()) {
+            choices.add(c.getName());
+        }
+        String input = p.chooseOption("choose a card to put onto your deck",choices,true);
         System.out.println(p.getCardsInDiscard().toJSON());
 
         if(!input.equals("")){
