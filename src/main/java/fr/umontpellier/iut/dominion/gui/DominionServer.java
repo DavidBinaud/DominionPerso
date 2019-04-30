@@ -61,7 +61,7 @@ public class DominionServer {
                 "Swindler",
                 "ThroneRoom",
                 "Torturer",
-                "Trading Post",
+                "TradingPost",
                 "Tribute",
                 "Upgrade",
                 "Vassal",
