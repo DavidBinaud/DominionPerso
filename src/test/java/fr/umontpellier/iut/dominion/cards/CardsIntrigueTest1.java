@@ -6,6 +6,8 @@ import fr.umontpellier.iut.dominion.Player;
 import fr.umontpellier.iut.dominion.cards.base.Moat;
 import fr.umontpellier.iut.dominion.cards.common.Estate;
 import fr.umontpellier.iut.dominion.cards.intrigue.Baron;
+import fr.umontpellier.iut.dominion.cards.intrigue.Bridge;
+import fr.umontpellier.iut.dominion.cards.intrigue.Conspirator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -78,6 +80,19 @@ public class CardsIntrigueTest1 {
         assertEquals(0,p0.getMoney());
         assertEquals(1,p0.getNumberOfBuys());
         assertNotNull(p0.getDiscard().getCard("Estate"));
+        assertEquals(6, p0.getHand().size());
+    }
+
+    @Test
+    void testConspirator() {
+        p0.getHand().add(new Conspirator());
+        p0.getInPlay().add(new Baron());
+        p0.getInPlay().add(new Bridge());
+
+
+        p0.playCard("Conspirator");
+
+        assertEquals(1,p0.getNumberOfActions());
         assertEquals(6, p0.getHand().size());
     }
 }
