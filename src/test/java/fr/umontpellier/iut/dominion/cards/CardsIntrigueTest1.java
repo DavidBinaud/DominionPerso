@@ -9,6 +9,7 @@ import fr.umontpellier.iut.dominion.cards.common.Estate;
 import fr.umontpellier.iut.dominion.cards.intrigue.Baron;
 import fr.umontpellier.iut.dominion.cards.intrigue.Bridge;
 import fr.umontpellier.iut.dominion.cards.intrigue.Conspirator;
+import fr.umontpellier.iut.dominion.cards.intrigue.Coppersmith;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -108,5 +109,34 @@ public class CardsIntrigueTest1 {
         assertEquals(2,p1.getMoney());
         assertEquals(0,p1.getNumberOfActions());
         assertEquals(5, p1.getHand().size());
+    }
+
+    @Test
+    void testCopperSmith() {
+        p0.getHand().add(new Coppersmith());
+        p0.getHand().add(new Coppersmith());
+        p0.getHand().add(new Coppersmith());
+
+        assertEquals(0,p0.getMoney());
+
+        p0.playCard("Copper");
+
+        assertEquals(1,p0.getMoney());
+
+        p0.playCard("Coppersmith");
+        p0.playCard("Copper");
+
+        assertEquals(3,p0.getMoney());
+
+        p0.playCard("Coppersmith");
+        p0.playCard("Copper");
+
+        assertEquals(6,p0.getMoney());
+
+        p0.getHand().add(new Copper());
+        p0.playCard("Coppersmith");
+        p0.playCard("Copper");
+
+        assertEquals(10,p0.getMoney());
     }
 }
