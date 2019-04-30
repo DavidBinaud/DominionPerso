@@ -4,6 +4,7 @@ import fr.umontpellier.iut.dominion.Game;
 import fr.umontpellier.iut.dominion.IOGame;
 import fr.umontpellier.iut.dominion.Player;
 import fr.umontpellier.iut.dominion.cards.base.Moat;
+import fr.umontpellier.iut.dominion.cards.common.Copper;
 import fr.umontpellier.iut.dominion.cards.common.Estate;
 import fr.umontpellier.iut.dominion.cards.intrigue.Baron;
 import fr.umontpellier.iut.dominion.cards.intrigue.Bridge;
@@ -92,7 +93,20 @@ public class CardsIntrigueTest1 {
 
         p0.playCard("Conspirator");
 
+        assertEquals(2,p0.getMoney());
         assertEquals(1,p0.getNumberOfActions());
         assertEquals(6, p0.getHand().size());
+
+
+        p1.getInPlay().clear();
+        p1.getHand().add(new Conspirator());
+        p1.getInPlay().add(new Baron());
+        p1.getInPlay().add(new Copper());
+
+        p1.playCard("Conspirator");
+
+        assertEquals(2,p1.getMoney());
+        assertEquals(0,p1.getNumberOfActions());
+        assertEquals(5, p1.getHand().size());
     }
 }
