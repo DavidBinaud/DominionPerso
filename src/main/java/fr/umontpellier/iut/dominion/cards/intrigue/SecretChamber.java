@@ -32,6 +32,18 @@ public class SecretChamber extends Reaction {
             p.drawToHand();
         }
     }
+
+    public void react(Player p){
+        p.drawToHand();
+        p.drawToHand();
+
+
+        String input = p.chooseCard("choose a card to put on top of your deck",p.getCardsInHand(),false);
+        p.fromHandToDraw(p.getCardsInHand().getCard(input));
+
+        input = p.chooseCard("choose a card to put on top of your deck",p.getCardsInHand(),false);
+        p.fromHandToDraw(p.getCardsInHand().getCard(input));
+    }
 }
 
 

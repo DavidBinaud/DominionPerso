@@ -102,7 +102,7 @@ public class Game {
      * Renvoie l'indice du joueur passé en argument dans le tableau des
      * joueurs, ou -1 si le joueur n'est pas dans le tableau.
      */
-    private int indexOfPlayer(Player p) {
+    public int indexOfPlayer(Player p) {
         return players.indexOf(p);
     }
 

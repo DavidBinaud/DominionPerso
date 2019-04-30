@@ -208,6 +208,26 @@ public class Player {
         return game.otherPlayers(this);
     }
 
+
+
+    public Player getPlayerOnLeft(){
+        int indexPlayer = game.indexOfPlayer(this);
+        int nbOfPlayer = game.getNumberOfPlayers();
+        int indexLeftPlayer;
+        if (nbOfPlayer > 1) {
+            if (indexPlayer == 0) {
+                indexLeftPlayer = nbOfPlayer - 1;
+            } else if (indexPlayer == nbOfPlayer - 1) {
+                indexLeftPlayer = 0;
+            }
+            else{
+                indexLeftPlayer = indexPlayer - 1;
+            }
+            return game.getPlayer(indexLeftPlayer);
+        }
+        else{return null;}
+    }
+
     /**
      * Incrémente le nombre d'numberOfActions du joueur
      *
