@@ -5,8 +5,6 @@ import fr.umontpellier.iut.dominion.Player;
 import fr.umontpellier.iut.dominion.cards.Card;
 import fr.umontpellier.iut.dominion.cards.base.Action;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class Ironworks extends Action {
     public Ironworks() {
