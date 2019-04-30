@@ -3,6 +3,7 @@ package fr.umontpellier.iut.dominion.cards;
 import fr.umontpellier.iut.dominion.ListOfCards;
 import fr.umontpellier.iut.dominion.cards.base.*;
 import fr.umontpellier.iut.dominion.cards.common.*;
+import fr.umontpellier.iut.dominion.cards.intrigue.*;
 
 import java.util.HashMap;
 
@@ -51,6 +52,30 @@ public final class FactoryListOfCards {
         dicoCards.put("Sentry", Sentry.class);
         dicoCards.put("Witch", Witch.class);
         dicoCards.put("Artisan", Artisan.class);
+        dicoCards.put("Bridge", Bridge.class);
+        dicoCards.put("Conspirator", Conspirator.class);
+        dicoCards.put("Coppersmith", Coppersmith.class);
+        dicoCards.put("Courtyard", Courtyard.class);
+        dicoCards.put("Duke", Duke.class);
+        dicoCards.put("GreatHall", GreatHall.class);
+        dicoCards.put("Harem", Harem.class);
+        dicoCards.put("Ironworks", Ironworks.class);
+        dicoCards.put("Masquerade", Masquerade.class);
+        dicoCards.put("MiningVillage", MiningVillage.class);
+        dicoCards.put("Minion", Minion.class);
+        dicoCards.put("Nobles", Nobles.class);
+        dicoCards.put("Pawn", Pawn.class);
+        dicoCards.put("Saboteur", Saboteur.class);
+        dicoCards.put("Scout", Scout.class);
+        dicoCards.put("SecretChamber", SecretChamber.class);
+        dicoCards.put("ShantyTown", ShantyTown.class);
+        dicoCards.put("Steward", Steward.class);
+        dicoCards.put("Swindler", Swindler.class);
+        dicoCards.put("Torturer", Torturer.class);
+        dicoCards.put("TradingPost", TradingPost.class);
+        dicoCards.put("Tribute", Tribute.class);
+        dicoCards.put("Upgrade", Upgrade.class);
+        dicoCards.put("WishingWell", WishingWell.class);
     }
 
     /**
