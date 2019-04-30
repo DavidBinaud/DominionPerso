@@ -28,7 +28,6 @@ public class Harbinger extends Action {
             choices.add(c.getName());
         }
         String input = p.chooseOption("choose a card to put onto your deck",choices,true);
-        System.out.println(p.getCardsInDiscard().toJSON());
 
         if(!input.equals("")){
             Card cardChoosen = p.getCardsInDiscard().getCard(input);

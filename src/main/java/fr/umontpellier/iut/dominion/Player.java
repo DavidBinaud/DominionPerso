@@ -304,6 +304,15 @@ public class Player {
     }
 
     /**
+     * Retire une carte de la main du joueur
+     * Et la place sur sa défausse.
+     */
+    public void fromHandToDiscard(Card c){
+        removeFromHand(c);
+        discardCard(c);
+    }
+
+    /**
      * Défausse une carte.
      *
      * La carte est ajoutée à la pile de défausse du joueur. On suppose que la carte
