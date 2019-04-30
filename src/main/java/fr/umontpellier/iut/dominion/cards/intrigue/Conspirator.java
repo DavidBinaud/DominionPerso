@@ -24,8 +24,7 @@ public class Conspirator extends Action {
         }
 
         if (nbActionsInPlay >= 3){
-            p.drawToHand();
-            p.incrementActions(1);
+            
         }
     }
 }
