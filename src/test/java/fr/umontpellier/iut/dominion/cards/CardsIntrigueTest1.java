@@ -6,10 +6,7 @@ import fr.umontpellier.iut.dominion.Player;
 import fr.umontpellier.iut.dominion.cards.base.Moat;
 import fr.umontpellier.iut.dominion.cards.common.Copper;
 import fr.umontpellier.iut.dominion.cards.common.Estate;
-import fr.umontpellier.iut.dominion.cards.intrigue.Baron;
-import fr.umontpellier.iut.dominion.cards.intrigue.Bridge;
-import fr.umontpellier.iut.dominion.cards.intrigue.Conspirator;
-import fr.umontpellier.iut.dominion.cards.intrigue.Coppersmith;
+import fr.umontpellier.iut.dominion.cards.intrigue.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -138,5 +135,23 @@ public class CardsIntrigueTest1 {
         p0.playCard("Copper");
 
         assertEquals(10,p0.getMoney());
+    }
+
+
+
+    @Test
+    void testCourtyard() {
+        p0.getHand().add(new Courtyard());
+        p0.getHand().add(new Baron());
+
+        assertEquals(7,p0.getHand().size());
+
+        game.setInput("Baron");
+        p0.playCard("Courtyard");
+
+
+        assertEquals(8,p0.getHand().size());
+        assertNotNull(p0.getDraw().getCard("Baron"));
+        assertNull(p0.getHand().getCard("Baron"));
     }
 }
