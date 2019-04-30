@@ -176,4 +176,25 @@ public class CardsIntrigueTest1 {
         p0.getInPlay().add(new Duke());
         assertEquals(23,p0.getVictoryPoints());
     }
+
+
+    @Test
+    void testGreatHall(){
+        assertEquals(3,p0.getVictoryPoints());
+
+        p0.getHand().add(new GreatHall());
+        assertEquals(4,p0.getVictoryPoints());
+
+        p0.playCard("Great Hall");
+
+        assertEquals(6,p0.getHand().size());
+        assertEquals(1,p0.getNumberOfActions());
+
+    }
+
+
+    @Test
+    void testHarem(){
+
+    }
 }
