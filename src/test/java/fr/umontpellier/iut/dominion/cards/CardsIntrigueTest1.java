@@ -195,6 +195,13 @@ public class CardsIntrigueTest1 {
 
     @Test
     void testHarem(){
+        assertEquals(3,p0.getVictoryPoints());
 
+        p0.getHand().add(new Harem());
+        assertEquals(5,p0.getVictoryPoints());
+
+        p0.playCard("Harem");
+
+        assertEquals(2,p0.getMoney());
     }
 }
