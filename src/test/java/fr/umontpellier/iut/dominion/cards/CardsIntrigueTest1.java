@@ -3,7 +3,6 @@ package fr.umontpellier.iut.dominion.cards;
 import fr.umontpellier.iut.dominion.Game;
 import fr.umontpellier.iut.dominion.IOGame;
 import fr.umontpellier.iut.dominion.Player;
-import fr.umontpellier.iut.dominion.cards.base.Moat;
 import fr.umontpellier.iut.dominion.cards.common.Copper;
 import fr.umontpellier.iut.dominion.cards.common.Duchy;
 import fr.umontpellier.iut.dominion.cards.common.Estate;
