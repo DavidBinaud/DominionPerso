@@ -5,6 +5,7 @@ import fr.umontpellier.iut.dominion.IOGame;
 import fr.umontpellier.iut.dominion.Player;
 import fr.umontpellier.iut.dominion.cards.base.Moat;
 import fr.umontpellier.iut.dominion.cards.common.Copper;
+import fr.umontpellier.iut.dominion.cards.common.Duchy;
 import fr.umontpellier.iut.dominion.cards.common.Estate;
 import fr.umontpellier.iut.dominion.cards.intrigue.*;
 import org.junit.jupiter.api.BeforeEach;
@@ -153,5 +154,27 @@ public class CardsIntrigueTest1 {
         assertEquals(8,p0.getHand().size());
         assertNotNull(p0.getDraw().getCard("Baron"));
         assertNull(p0.getHand().getCard("Baron"));
+    }
+
+    @Test
+    void testDuke() {
+        p0.getHand().add(new Duke());
+
+        assertEquals(3,p0.getVictoryPoints());
+
+        p0.getHand().add(new Duchy());
+        assertEquals(7,p0.getVictoryPoints());
+
+        p0.getDiscard().add(new Duchy());
+        assertEquals(11,p0.getVictoryPoints());
+
+        p0.getDraw().add(new Duchy());
+        assertEquals(15,p0.getVictoryPoints());
+
+        p0.getInPlay().add(new Duchy());
+        assertEquals(19,p0.getVictoryPoints());
+
+        p0.getInPlay().add(new Duke());
+        assertEquals(23,p0.getVictoryPoints());
     }
 }
