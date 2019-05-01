@@ -631,6 +631,17 @@ public class Player {
         }
         return react;
     }
+
+
+    public ListOfCards getReactCards(){
+        ListOfCards reactCards = new ListOfCards();
+        for (Card c: hand) {
+            if (c.getTypes().contains(CardType.Reaction)){
+                reactCards.add(c);
+            }
+        }
+        return reactCards;
+    }
     /**
      * Envoie l'état de la partie pour affichage aux joueurs et à l'UI avant de faire un choix
      *
