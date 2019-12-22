@@ -206,4 +206,21 @@ class CardsTest3 {
         assertEquals(duchy, p1.getDraw().get(0));
         assertEquals(silver, p1.getDraw().get(1));
     }
+    
+    @Test
+    void testThroneRoomActionMerchant() {
+        p0.getHand().add(new ThroneRoom());
+        p0.getHand().add(new Merchant());
+        p0.getHand().add(new Silver());
+
+        game.setInput("Merchant");
+
+        p0.playCard("Throne Room");
+        assertNotNull(p0.getInPlay().getCard("Merchant"));
+        p0.playCard("Silver");
+
+        assertNotNull(p0.getInPlay().getCard("Silver"));
+        assertEquals(2, p0.getNumberOfActions());
+        assertEquals(4,p0.getMoney());
+    }
 }
